@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Badsha Miah Agro</title>
+    <link rel="icon" type="image/png" href="image/favicon-32x32.png" />
+    <style>
+      /* Animation for moving emojis */
+      @keyframes moveAcross {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(100vw);
+        }
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 100%;
+      }
+
+      /* Banner animation section */
+      .banner {
+        height: 60px;
+        background-color: #90ee90;
+        position: relative;
+        overflow: hidden;
+        margin: 10px 0;
+        padding: 5px 0;
+      }
+
+      .Agro-item {
+        position: absolute;
+        bottom: 10px;
+        font-size: 40px;
+        animation: moveAcross 15s linear infinite;
+      }
+
+      .cow {
+        animation-delay: 0s;
+      }
+      .chicken {
+        animation-delay: 3.75s;
+      }
+      .egg {
+        animation-delay: 7.5s;
+      }
+      .milk {
+        animation-delay: 11.25s;
+      }
+
+      /* Modern Navigation bar */
+      #header {
+        padding: 20px 0;
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0.97),
+          rgba(240, 249, 244, 0.97)
+        );
+        box-shadow: 0 4px 20px rgba(46, 139, 87, 0.15);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 2px solid rgba(46, 139, 87, 0.1);
+      }
+
+      .nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1200px;
+        gap: 4rem;
+      }
+
+      .nav-item {
+        font-size: 17px;
+        position: relative;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: #1a1a1a;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 12px 0;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+      }
+
+      .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #2e8b57;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        transform-origin: right;
+      }
+
+      .nav-link:hover {
+        color: #2e8b57;
+        transform: translateY(-1px);
+      }
+
+      .nav-link:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      /* Add active state for current page */
+      .nav-link.active {
+        color: #2e8b57;
+        font-weight: 800;
+      }
+
+      .nav-link.active::before {
+        transform: scaleX(1);
+        height: 3px;
+        bottom: 2px;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #e8f5e9 0%, #f8f8f8 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("image/Logo.png");
+        /* make the logo more visible but still subtle */
+        background-size: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.1;
+        z-index: 0;
+        transform: scale(1);
+        pointer-events: none;
+      }
+
+      .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .brand-title {
+        font-size: 64px;
+        color: #2e8b57;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .brand-slogan {
+        font-size: 28px;
+        color: #444;
+        margin-bottom: 30px;
+        font-weight: 300;
+      }
+
+      .hero-description {
+        font-size: 18px;
+        color: #555;
+        max-width: 800px;
+        margin: 0 auto 40px;
+        line-height: 1.8;
+        padding: 0 20px;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+
+      .cta-button {
+        padding: 15px 35px;
+        font-size: 18px;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .primary-cta {
+        background-color: #2e8b57;
+        color: white;
+        border: none;
+      }
+
+      .primary-cta:hover {
+        background-color: #236b42;
+        transform: translateY(-2px);
+      }
+
+      .secondary-cta {
+        background-color: transparent;
+        color: #2e8b57;
+        border: 2px solid #2e8b57;
+      }
+
+      .secondary-cta:hover {
+        background-color: #2e8b57;
+        color: white;
+      }
+
+      /* About Section */
+      #about {
+        padding: 80px 20px;
+        background-color: white;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 42px;
+        color: #2e8b57;
+        margin: 0 auto 60px auto;
+        position: relative;
+        display: block; /* use block so margin:auto centers it */
+        text-align: center;
+        max-width: 720px;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: #2e8b57;
+      }
+
+      .about-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+        padding: 20px;
+      }
+
+      .about-card {
+        background: white;
+        border-radius: 15px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 30px rgba(46, 139, 87, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        border: 1px solid #e0e0e0;
+      }
+
+      .about-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(46, 139, 87, 0.2);
+      }
+
+      .about-icon {
+        font-size: 40px;
+        color: #2e8b57;
+        margin-bottom: 20px;
+      }
+
+      .about-card h3 {
+        color: #2e8b57;
+        font-size: 24px;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .about-card p {
+        line-height: 1.8;
+        color: #666;
+        font-size: 16px;
+      }
+
+      /* Products Section styles (added) */
+      #products {
+        padding: 80px 20px;
+        background: linear-gradient(135deg, #fffefa 0%, #f0f9f4 100%);
+      }
+      .products-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .product-categories {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+      .category-btn {
+        padding: 8px 18px;
+        border: 2px solid #2e8b57;
+        border-radius: 20px;
+        background: transparent;
+        color: #2e8b57;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .category-btn.active,
+      .category-btn:hover {
+        background: #2e8b57;
+        color: white;
+      }
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+      }
+      .product-card {
+        background: white;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(46, 139, 87, 0.08);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        display: flex;
+        flex-direction: column;
+      }
+      .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 18px 40px rgba(46, 139, 87, 0.12);
+      }
+      .product-image {
+        width: 100%;
+        height: 220px;
+        position: relative;
+        overflow: hidden;
+      }
+      .product-photo {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        animation: floatImage 6s ease-in-out infinite alternate;
+      }
+      .cow-milk-photo {
+        background-image: url("image/cow image  (1).jpg");
+      }
+      .cow-meat-photo {
+        background-image: url("image/cow image  (2).jpg");
+      }
+      @keyframes floatImage {
+        from {
+          transform: translateY(0) scale(1);
+        }
+        to {
+          transform: translateY(-8px) scale(1.02);
+        }
+      }
+      .product-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: rgba(46, 139, 87, 0.95);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 12px;
+        font-size: 13px;
+      }
+      .product-info {
+        padding: 18px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .product-name {
+        font-size: 20px;
+        color: #2e8b57;
+        margin: 0 0 10px 0;
+        font-weight: 700;
+      }
+      .product-description {
+        color: #555;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 14px;
+      }
+      .product-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8px;
+        border-top: 1px solid #f1f1f1;
+        padding-top: 12px;
+      }
+      .product-price {
+        color: #2e8b57;
+        font-weight: 700;
+        font-size: 18px;
+      }
+
+      /* Eid Special Section */
+      .eid-special-section {
+        padding: 60px 0;
+        background: linear-gradient(135deg, #fff9e6 0%, #f0f9f4 100%);
+        margin-top: 60px;
+        border-radius: 20px;
+      }
+
+      .carousel-container {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(46, 139, 87, 0.15);
+      }
+
+      .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        height: 500px;
+      }
+
+      .carousel-slide {
+        min-width: 100%;
+        position: relative;
+      }
+
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .slide-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        color: white;
+      }
+
+      .slide-badge {
+        background: #2e8b57;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+
+      .slide-description {
+        font-size: 18px;
+        margin: 0;
+      }
+
+      .carousel-nav {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .nav-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid #2e8b57;
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .nav-dot.active {
+        background: #2e8b57;
+        transform: scale(1.2);
+      }
+
+      .eid-cta {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      @keyframes slideShow {
+        0% {
+          transform: translateX(0);
+        }
+        16.66% {
+          transform: translateX(-100%);
+        }
+        33.33% {
+          transform: translateX(-200%);
+        }
+        50% {
+          transform: translateX(-300%);
+        }
+        66.66% {
+          transform: translateX(-400%);
+        }
+        83.33% {
+          transform: translateX(-500%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .carousel-track {
+        animation: slideShow 15s infinite;
+      }
+
+      .carousel-track:hover {
+        animation-play-state: paused;
+      }
+
+      @media (max-width: 768px) {
+        .brand-title {
+          font-size: 48px;
+        }
+
+        .brand-slogan {
+          font-size: 24px;
+        }
+
+        .hero-description {
+          font-size: 16px;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          padding: 10px;
+        }
+
+        .section-title {
+          font-size: 36px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Animated Banner -->
+      <div class="banner">
+        <div class="Agro-item cow">🐄</div>
+        <div class="Agro-item chicken">🐔</div>
+        <div class="Agro-item egg">🥚</div>
+        <div class="Agro-item milk">🥛</div>
+      </div>
+
+      <!-- Modern Navigation -->
+      <div id="header">
+        <nav>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="#products" class="nav-link">Products</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1 class="brand-title">Badsha Miah Agro</h1>
+          <p class="brand-slogan">Fresh from Nature, Pure by Choice</p>
+          <p class="hero-description">
+            Welcome to BadshaMia Agro, where tradition meets innovation in
+            sustainable farming. Since 2022, we've been committed to delivering
+            the finest dairy products and farm-fresh eggs while maintaining the
+            highest standards of animal welfare and environmental stewardship.
+          </p>
+          <div class="cta-buttons">
+            <a href="#products" class="cta-button primary-cta">Our Products</a>
+            <a href="#about" class="cta-button secondary-cta">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <div id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-icon">🌱</div>
+            <h3>Sustainable Practices</h3>
+            <p>
+              Our commitment to sustainable farming ensures that every product
+              is produced with respect for the environment. We implement
+              eco-friendly practices that preserve our land for future
+              generations.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <div class="about-icon">💚</div>
+            <h3>Animal Welfare</h3>
+            <p>
+              We believe happy animals produce better products. Our animals
+              enjoy spacious, clean facilities and receive the highest standard
+              of care, resulting in superior quality products.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <div class="about-icon">✨</div>
+            <h3>Quality Assurance</h3>
+            <p>
+              From farm to table, we maintain strict quality control at every
+              step. Our products undergo rigorous testing to ensure you receive
+              only the freshest, purest agricultural products.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <div class="about-icon">🤝</div>
+            <h3>Community First</h3>
+            <p>
+              As a family-owned business, we prioritize building lasting
+              relationships with our community. We're committed to providing
+              local jobs and supporting sustainable agricultural practices.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products Section -->
+      <div id="products">
+        <div class="products-container">
+          <h2 class="section-title">Our Products</h2>
+
+          <div class="product-categories">
+            <button class="category-btn active">All Products</button>
+            <button class="category-btn">Milk</button>
+            <button class="category-btn">Meat</button>
+          </div>
+
+          <div class="products-grid">
+            <!-- Cow Milk -->
+            <div class="product-card">
+              <div class="product-image">
+                <div class="product-photo cow-milk-photo"></div>
+                <span class="product-badge">Regular</span>
+              </div>
+              <div class="product-info">
+                <div>
+                  <h3 class="product-name">Cow Milk</h3>
+                  <p class="product-description">
+                    Fresh cow milk collected daily from our grass-fed cows.
+                    Pasteurized and packed fresh — available on regular days.
+                  </p>
+                </div>
+                <div class="product-meta">
+                  <div class="product-price">৳120 / liter</div>
+                  <div class="product-rating">★★★★★</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cow Meat -->
+            <div class="product-card">
+              <div class="product-image">
+                <div class="product-photo cow-meat-photo"></div>
+                <span class="product-badge">Advance Order (Eid)</span>
+              </div>
+              <div class="product-info">
+                <div>
+                  <h3 class="product-name">Cow Meat</h3>
+                  <p class="product-description">
+                    Premium-quality beef portions prepared from healthy cows.
+                    Available for regular purchase; we accept advance orders for
+                    Eid. Contact us for bulk/weight pricing and delivery.
+                  </p>
+                </div>
+                <div class="product-meta">
+                  <div class="product-price">৳850 / kg (typical)</div>
+                  <div class="product-rating">★★★★☆</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Eid Special Section -->
+        <div id="eid-special" class="eid-special-section">
+          <h2 class="section-title">Eid Special</h2>
+          <div class="eid-carousel">
+            <div class="carousel-container">
+              <div class="carousel-track">
+                <div class="carousel-slide">
+                  <img src="image/cow image  (1).jpg" alt="Eid Special Cow 1" />
+                  <div class="slide-info">
+                    <span class="slide-badge">Premium</span>
+                    <p class="slide-description">
+                      Beautiful healthy cow perfect for Eid
+                    </p>
+                  </div>
+                </div>
+                <div class="carousel-slide">
+                  <img src="image/cow image  (2).jpg" alt="Eid Special Cow 2" />
+                  <div class="slide-info">
+                    <span class="slide-badge">Featured</span>
+                    <p class="slide-description">
+                      Strong and well-fed cattle for Qurbani
+                    </p>
+                  </div>
+                </div>
+                <div class="carousel-slide">
+                  <img src="image/cow image  (3).jpg" alt="Eid Special Cow 3" />
+                  <div class="slide-info">
+                    <span class="slide-badge">Special</span>
+                    <p class="slide-description">
+                      High-quality cow for your Eid celebration
+                    </p>
+                  </div>
+                </div>
+                <div class="carousel-slide">
+                  <img src="image/cow image  (4).jpg" alt="Eid Special Cow 4" />
+                  <div class="slide-info">
+                    <span class="slide-badge">Premium Plus</span>
+                    <p class="slide-description">
+                      Excellent breed for your Eid sacrifice
+                    </p>
+                  </div>
+                </div>
+                <div class="carousel-slide">
+                  <img src="image/cow image  (5).jpg" alt="Eid Special Cow 5" />
+                  <div class="slide-info">
+                    <span class="slide-badge">Featured</span>
+                    <p class="slide-description">
+                      Top quality cattle for Eid-ul-Adha
+                    </p>
+                  </div>
+                </div>
+                <div class="carousel-slide">
+                  <img src="image/cow image  (6).jpg" alt="Eid Special Cow 6" />
+                  <div class="slide-info">
+                    <span class="slide-badge">Elite</span>
+                    <p class="slide-description">
+                      Premium selection for your special occasion
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-nav">
+              <button class="nav-dot active" data-slide="0"></button>
+              <button class="nav-dot" data-slide="1"></button>
+              <button class="nav-dot" data-slide="2"></button>
+              <button class="nav-dot" data-slide="3"></button>
+              <button class="nav-dot" data-slide="4"></button>
+              <button class="nav-dot" data-slide="5"></button>
+            </div>
+          </div>
+          <div class="eid-cta">
+            <a href="#contact" class="cta-button primary-cta">Book for Eid</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <div id="contact" style="padding: 60px 20px; background: #fff">
+        <div class="products-container">
+          <h2 class="section-title">Contact Us</h2>
+
+          <div
+            class="contact-grid"
+            style="
+              max-width: 1200px;
+              margin: 0 auto;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 24px;
+              align-items: start;
+            "
+          >
+            <div
+              class="contact-card"
+              style="
+                background: linear-gradient(180deg, #f8fff6, #ffffff);
+                padding: 24px;
+                border-radius: 12px;
+                box-shadow: 0 10px 25px rgba(46, 139, 87, 0.06);
+              "
+            >
+              <h3 style="color: #2e8b57; margin-top: 0">Get in touch</h3>
+              <p style="margin: 8px 0; color: #444; font-size: 16px">
+                Mobile:
+                <a
+                  href="tel:01819867944"
+                  style="
+                    color: #236b42;
+                    font-weight: 700;
+                    text-decoration: none;
+                  "
+                  >01819867944</a
+                >
+              </p>
+              <p style="margin: 8px 0; color: #444; font-size: 16px">
+                WhatsApp:
+                <a
+                  href="https://wa.me/01819867944"
+                  target="_blank"
+                  rel="noopener"
+                  style="
+                    color: #236b42;
+                    font-weight: 700;
+                    text-decoration: none;
+                  "
+                  >01819867944</a
+                >
+              </p>
+              <p style="margin: 8px 0; color: #444; font-size: 16px">
+                Location:
+                <a
+                  href="https://maps.app.goo.gl/KexGuWWMXhiPjR6V8"
+                  target="_blank"
+                  rel="noopener"
+                  style="
+                    color: #236b42;
+                    font-weight: 700;
+                    text-decoration: none;
+                    margin-left: 6px;
+                  "
+                  >Ghopal 4, Muhuriganj, Chhagalnaiya, Feni.</a
+                >
+              </p>
+              <p style="margin: 12px 0 0 0; color: #666; font-size: 15px">
+                Prefer to visit? Open our location on Google Maps:
+              </p>
+              <p style="margin: 8px 0 0 0">
+                <a
+                  href="https://maps.app.goo.gl/KexGuWWMXhiPjR6V8"
+                  target="_blank"
+                  rel="noopener"
+                  style="
+                    color: #2e8b57;
+                    font-weight: 700;
+                    text-decoration: none;
+                  "
+                  >Open location in Google Maps</a
+                >
+              </p>
+            </div>
+
+            <div
+              class="contact-map"
+              style="
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 10px 25px rgba(46, 139, 87, 0.06);
+              "
+            >
+              <!-- embed map (short links sometimes redirect; if iframe doesn't load, use the clickable link above) -->
+              <iframe
+                src="https://www.google.com/maps?q=https://maps.app.goo.gl/KexGuWWMXhiPjR6V8&output=embed"
+                width="100%"
+                height="320"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
