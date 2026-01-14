@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Badsha Miah Agro</title>
     <link rel="icon" type="image/png" href="image/favicon-32x32.png" />
     <style>
@@ -77,6 +79,41 @@
         top: 0;
         z-index: 1000;
         border-bottom: 2px solid rgba(46, 139, 87, 0.1);
+      }
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px 15px;
+        gap: 5px;
+      }
+
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: #2e8b57;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
       }
 
       .nav-list {
@@ -545,31 +582,326 @@
       }
 
       @media (max-width: 768px) {
+        .banner {
+          height: 50px;
+          margin: 8px 0;
+          padding: 3px 0;
+        }
+
+        .Agro-item {
+          font-size: 28px;
+          bottom: 8px;
+        }
+
+        .menu-toggle {
+          display: flex;
+          position: absolute;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        #header {
+          padding: 15px 20px;
+        }
+
+        nav {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: white;
+          flex-direction: column;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.active {
+          display: flex;
+        }
+
+        .nav-list {
+          flex-direction: column;
+          gap: 0;
+          align-items: flex-start;
+          width: 100%;
+          padding: 15px 0;
+          margin: 0;
+        }
+
+        .nav-item {
+          width: 100%;
+          border-bottom: 1px solid #f0f0f0;
+          font-size: 16px;
+        }
+
+        .nav-link {
+          display: block;
+          padding: 15px 20px;
+          width: 100%;
+          box-sizing: border-box;
+          text-transform: capitalize;
+          font-size: 16px;
+        }
+
+        .nav-link::before {
+          display: none;
+        }
+
+        .hero-section {
+          padding: 40px 15px;
+        }
+
+        .hero-section::before {
+          background-size: 80%;
+          opacity: 0.05;
+        }
+
+        .brand-title {
+          font-size: 36px;
+          margin-bottom: 15px;
+        }
+
+        .brand-slogan {
+          font-size: 18px;
+          margin-bottom: 20px;
+        }
+
+        .hero-description {
+          font-size: 14px;
+          margin-bottom: 25px;
+          padding: 0 10px;
+          line-height: 1.6;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 20px;
+        }
+
+        .cta-button {
+          padding: 12px 28px;
+          font-size: 16px;
+          width: 90%;
+          max-width: 280px;
+          text-align: center;
+        }
+
+        #about {
+          padding: 50px 15px;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          padding: 10px;
+        }
+
+        .about-card {
+          padding: 25px 20px;
+        }
+
+        .about-card h3 {
+          font-size: 20px;
+          margin-bottom: 15px;
+        }
+
+        .about-card p {
+          font-size: 14px;
+          line-height: 1.6;
+        }
+
+        .about-icon {
+          font-size: 32px;
+          margin-bottom: 15px;
+        }
+
+        .section-title {
+          font-size: 28px;
+          margin-bottom: 40px;
+        }
+
+        .section-title::after {
+          width: 60px;
+          bottom: -12px;
+        }
+
+        #products {
+          padding: 50px 15px;
+        }
+
+        .products-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .product-card {
+          border-radius: 10px;
+        }
+
+        .product-image {
+          height: 200px;
+        }
+
+        .product-info {
+          padding: 15px;
+        }
+
+        .product-name {
+          font-size: 18px;
+          margin-bottom: 8px;
+        }
+
+        .product-description {
+          font-size: 13px;
+          margin-bottom: 12px;
+        }
+
+        .product-meta {
+          font-size: 14px;
+        }
+
+        .product-price {
+          font-size: 16px;
+        }
+
+        .category-btn {
+          padding: 7px 14px;
+          font-size: 12px;
+          border-radius: 15px;
+        }
+
+        .product-categories {
+          gap: 10px;
+          margin-bottom: 24px;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+        }
+
+        .carousel-track {
+          height: 300px;
+        }
+
+        .carousel-slide img {
+          object-fit: cover;
+        }
+
+        .slide-info {
+          padding: 15px;
+        }
+
+        .slide-badge {
+          font-size: 12px;
+          padding: 5px 10px;
+        }
+
+        .slide-description {
+          font-size: 14px;
+        }
+
+        .eid-special-section {
+          padding: 40px 15px;
+          margin-top: 40px;
+          border-radius: 15px;
+        }
+
+        .eid-cta {
+          margin-top: 20px;
+        }
+
+        #contact {
+          padding: 50px 15px !important;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr !important;
+          gap: 20px !important;
+          align-items: start !important;
+        }
+
+        .contact-card {
+          padding: 18px !important;
+        }
+
+        .contact-card h3 {
+          font-size: 18px;
+          margin-top: 0 !important;
+        }
+
+        .contact-card p {
+          margin: 10px 0 !important;
+          font-size: 14px !important;
+        }
+
+        .contact-map {
+          min-height: 300px;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
         .brand-title {
           font-size: 48px;
         }
 
         .brand-slogan {
-          font-size: 24px;
+          font-size: 22px;
         }
 
         .hero-description {
           font-size: 16px;
         }
 
-        .cta-buttons {
-          flex-direction: column;
-          align-items: center;
+        .hero-section {
+          padding: 50px 20px;
         }
 
-        .about-grid {
-          grid-template-columns: 1fr;
-          gap: 30px;
-          padding: 10px;
+        .cta-buttons {
+          gap: 15px;
+        }
+
+        .cta-button {
+          padding: 13px 30px;
+          font-size: 16px;
         }
 
         .section-title {
           font-size: 36px;
+        }
+
+        .about-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 25px;
+          padding: 15px;
+        }
+
+        .products-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+
+        .product-image {
+          height: 200px;
+        }
+
+        .carousel-track {
+          height: 400px;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr !important;
+          gap: 20px !important;
+        }
+      }
+
+      @media (min-width: 1025px) {
+        .menu-toggle {
+          display: none;
+        }
+
+        nav {
+          display: flex;
         }
       }
     </style>
@@ -587,7 +919,12 @@
 
       <!-- Modern Navigation -->
       <div id="header">
-        <nav>
+        <button class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="navMenu">
           <ul class="nav-list">
             <li class="nav-item">
               <a href="index.html" class="nav-link active">Home</a>
@@ -926,5 +1263,33 @@
         </div>
       </div>
     </div>
+
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const navMenu = document.getElementById('navMenu');
+      
+      menuToggle.addEventListener('click', function() {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+
+      // Close menu when a link is clicked
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          menuToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!event.target.closest('#header')) {
+          menuToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+        }
+      });
+    </script>
   </body>
 </html>
